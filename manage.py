@@ -3,7 +3,7 @@ import os
 import sys
 
 if __name__ == "__main__":
-    os.environ.setdefault("DEMOSYS_SETTINGS_MODULE", "demosys_test.settings")
+    os.environ.setdefault("DEMOSYS_SETTINGS_MODULE", "testdemo.settings")
 
     from demosys.core.management import execute_from_command_line
 
