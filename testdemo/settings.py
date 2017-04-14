@@ -15,21 +15,22 @@ OPENGL = {
 
 WINDOW = {
     # "size": (640, 360),
-    "size": (1280, 768),
-    # "size": (1000, 600),
+    # "size": (1280, 768),
+    "size": (1000, 600),
     "vsync": True,
     "resizable": True,
     "fullscreen": False,
     "title": "demosys-py",
-    "cursor": False,
+    "cursor": True,
 }
 
-MUSIC = os.path.join(PROJECT_DIR, 'resources/music/tg2035.mp3')
-TIMER = 'demosys.timers.MusicTimer'
+# MUSIC = os.path.join(PROJECT_DIR, 'resources/music/tg2035.mp3')
+TIMER = 'demosys.timers.RocketTimer'
 
 # What effects to load
 EFFECTS = (
     'testdemo.cube',
+    'testdemo.rockettest',
 )
 
 SHADER_DIRS = (

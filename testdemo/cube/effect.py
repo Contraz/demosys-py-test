@@ -7,7 +7,7 @@ from OpenGL import GL
 
 class CubeEffect(effect.Effect):
     """Simple effect drawing a textured cube"""
-    def init(self):
+    def __init__(self):
         self.cube_shader1 = self.get_shader('cube/cube_multi_fade.glsl')
         self.cube_shader2 = self.get_shader('cube/cube_texture_light.glsl')
         self.quad_shader = self.get_shader('quad_fs_uvscale.glsl')
