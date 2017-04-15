@@ -29,7 +29,7 @@ class DefaultEffect(effect.Effect):
                                                        self.pos_z.time_value(time)))
 
         # Apply the rotation and translation from the system camera
-        m_mv = matrix44.multiply(m_mv, self.sys_camera.view_matrix)
+        # m_mv = matrix44.multiply(m_mv, self.sys_camera.view_matrix)
 
         # Create normal matrix from model-view
         m_normal = self.create_normal_matrix(m_mv)
