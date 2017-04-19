@@ -1,3 +1,4 @@
+import math
 from demosys.effects import effect
 from demosys.opengl import geometry
 from OpenGL import GL
@@ -11,19 +12,19 @@ class DefaultEffect(effect.Effect):
         self.cube = geometry.cube(4.0, 4.0, 4.0)
 
         # Tracks
-        self.rot_x = self.get_track("test:rot.x")
-        self.rot_y = self.get_track("test:rot.y")
-        self.rot_z = self.get_track("test:rot.z")
-        self.pos_z = self.get_track("test:pos.z")
+        self.rot_x = self.get_track("cube:rot.x")
+        self.rot_y = self.get_track("cube:rot.y")
+        self.rot_z = self.get_track("cube:rot.z")
+        self.pos_z = self.get_track("cube:pos.z")
 
     @effect.bind_target
     def draw(self, time, frametime, target):
         GL.glEnable(GL.GL_DEPTH_TEST)
 
         # Rotate and translate
-        m_mv = self.create_transformation(rotation=(self.rot_x.time_value(time),
-                                                    self.rot_y.time_value(time),
-                                                    self.rot_z.time_value(time)),
+        m_mv = self.create_transformation(rotation=(self.rot_x.time_value(time) * math.pi / 180,
+                                                    self.rot_y.time_value(time) * math.pi / 180,
+                                                    self.rot_z.time_value(time) * math.pi / 180),
                                           translation=(0.0,
                                                        0.0,
                                                        self.pos_z.time_value(time)))

@@ -15,8 +15,9 @@ OPENGL = {
 
 WINDOW = {
     # "size": (640, 360),
+    "size": (800, 600),
     # "size": (1280, 768),
-    "size": (1000, 600),
+    # "size": (1000, 600),
     "vsync": True,
     "resizable": True,
     "fullscreen": False,
@@ -26,6 +27,13 @@ WINDOW = {
 
 # MUSIC = os.path.join(PROJECT_DIR, 'resources/music/tg2035.mp3')
 TIMER = 'demosys.timers.RocketTimer'
+
+ROCKET = {
+    'mode': 'editor',
+    'rps': 60,
+    'project': os.path.join(PROJECT_DIR, 'resources', 'cube.xml'),
+    'files': os.path.join(PROJECT_DIR, 'resources', 'tracks'),
+}
 
 # What effects to load
 EFFECTS = (
