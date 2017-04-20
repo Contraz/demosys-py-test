@@ -29,7 +29,7 @@ WINDOW = {
 TIMER = 'demosys.timers.RocketTimer'
 
 ROCKET = {
-    'mode': 'editor',
+    'mode': 'project',
     'rps': 60,
     'project': os.path.join(PROJECT_DIR, 'resources', 'cube.xml'),
     'files': os.path.join(PROJECT_DIR, 'resources', 'tracks'),
