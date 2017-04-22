@@ -1,1 +1,2 @@
-demosys-py==0.3.5
+demosys-py==0.3.7
+pygame==1.9.3
