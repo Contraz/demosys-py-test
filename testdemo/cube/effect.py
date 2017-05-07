@@ -11,8 +11,8 @@ class CubeEffect(effect.Effect):
         self.cube_shader1 = self.get_shader('cube/cube_multi_fade.glsl')
         self.cube_shader2 = self.get_shader('cube/cube_texture_light.glsl')
         self.quad_shader = self.get_shader('quad_fs_uvscale.glsl')
-        self.texture1 = self.get_texture('cube/texture.png')
-        self.texture2 = self.get_texture('cube/GreenFabric.png')
+        self.texture1 = self.get_texture('cube/texture.png', anisotropy=4.0)
+        self.texture2 = self.get_texture('cube/GreenFabric.png', anisotropy=4.0)
         self.cube = geometry.cube(4.0, 4.0, 4.0)
         v = 100.0
         r = (-v, v)
