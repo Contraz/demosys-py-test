@@ -15,8 +15,8 @@ OPENGL = {
 
 WINDOW = {
     # "size": (640, 360),
-    "size": (800, 600),
-    # "size": (1280, 768),
+    # "size": (800, 600),
+    "size": (1280, 768),
     # "size": (1000, 600),
     "vsync": True,
     "resizable": True,
@@ -37,8 +37,8 @@ ROCKET = {
 
 # What effects to load
 EFFECTS = (
-    'testdemo.cube',
-    'testdemo.rockettest',
+    # 'testdemo.cube',
+    # 'testdemo.rockettest',
     'testdemo.feedback',
 )
 

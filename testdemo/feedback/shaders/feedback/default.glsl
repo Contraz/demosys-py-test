@@ -2,8 +2,8 @@
 
 #if defined VERTEX_SHADER
 
-in vec3 in_position;
-in vec3 in_velocity;
+layout (location = 0) in vec3 in_position;
+layout (location = 1) in vec3 in_velocity;
 
 out vec3 vert_color;
 
