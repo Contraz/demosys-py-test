@@ -110,12 +110,12 @@ class DefaultEffect(effect.Effect):
                 yield random.uniform(-speed, speed)
                 yield random.uniform(-speed, speed)
 
-        d = list(gen())
+        # d = list(gen())
 
-        # data1 = numpy.fromiter(gen(), count=count * 6, dtype=numpy.float32)
-        # data2 = numpy.fromiter(gen(), count=count * 6, dtype=numpy.float32)
-        data1 = numpy.array(d, dtype=numpy.float32)
-        data2 = numpy.array(d, dtype=numpy.float32)
+        data1 = numpy.fromiter(gen(), count=count * 6, dtype=numpy.float32)
+        data2 = numpy.fromiter(gen(), count=count * 6, dtype=numpy.float32)
+        # data1 = numpy.array(d, dtype=numpy.float32)
+        # data2 = numpy.array(d, dtype=numpy.float32)
 
         self.pos1 = VBO(data1)
         self.particles1 = VAO("particles", mode=GL.GL_POINTS)
