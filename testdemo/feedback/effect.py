@@ -118,14 +118,14 @@ class DefaultEffect(effect.Effect):
         # data2 = numpy.array(d, dtype=numpy.float32)
 
         self.pos1 = VBO(data1)
-        self.particles1 = VAO("particles", mode=GL.GL_POINTS)
+        self.particles1 = VAO("particles1", mode=GL.GL_POINTS)
         self.particles1.add_array_buffer(GL.GL_FLOAT, self.pos1)
         self.particles1.map_buffer(self.pos1, "in_position", 3)
         self.particles1.map_buffer(self.pos1, "in_velocity", 3)
         self.particles1.build()
 
         self.pos2 = VBO(data2)
-        self.particles2 = VAO("particles", mode=GL.GL_POINTS)
+        self.particles2 = VAO("particles2", mode=GL.GL_POINTS)
         self.particles2.add_array_buffer(GL.GL_FLOAT, self.pos2)
         self.particles2.map_buffer(self.pos2, "in_position", 3)
         self.particles2.map_buffer(self.pos2, "in_velocity", 3)
