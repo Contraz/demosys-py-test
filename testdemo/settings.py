@@ -39,6 +39,7 @@ ROCKET = {
 EFFECTS = (
     'testdemo.cube',
     'testdemo.rockettest',
+    'testdemo.feedback',
 )
 
 SHADER_DIRS = (
