@@ -37,7 +37,9 @@ ROCKET = {
 
 # What effects to load
 EFFECTS = (
-    'testdemo.cube',
+    'testdemo.deferred',
+    'demosys.deferred',
+    # 'testdemo.cube',
     # 'testdemo.rockettest',
     # 'testdemo.feedback',
 )
