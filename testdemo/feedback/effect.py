@@ -40,15 +40,17 @@ class DefaultEffect(effect.Effect):
 
         # Rotate and translate
         m_mv = self.create_transformation(rotation=(time * 0.0, time * 0, time * 0),
-                                          translation=(0.0, 0.0, -70.0))
+                                          translation=(0.0, 0.0, -40.0))
 
         # Apply the rotation and translation from the system camera
-        # m_mv = matrix44.multiply(m_mv, self.sys_camera.view_matrix)
+        m_mv = matrix44.multiply(m_mv, self.sys_camera.view_matrix)
 
         # gravity = vector3.create(math.sin(time) * 10.0
-        gravity_pos = vector3.create(0.0, 0.0, 0.0)
-        gravity_force = math.cos(time) * 5.0 + 5.0;
-
+        gravity_pos = vector3.create(math.sin(time) * 5,
+                                     math.cos(time) * 5,
+                                     math.sin(time/3) * 5)
+        gravity_force = math.cos(time / 2) * 3.0 + 3.0
+        # gravity_force = 2.0
         # Transform
         with self.particles.bind(self.feedback) as s:
             s.uniform_3fv("gravity_pos", gravity_pos)
@@ -96,8 +98,8 @@ class DefaultEffect(effect.Effect):
 
     def init_particles(self):
         count = 100000
-        area = 50.0
-        speed = 10.0
+        area = 30.0
+        speed = 5.0
 
         def gen():
             for i in range(count):

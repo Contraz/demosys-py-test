@@ -8,7 +8,7 @@ layout (location = 1) in vec3 in_velocity;
 out vec3 vert_color;
 
 void main() {
-    vert_color = vec3(length(in_velocity) / 10.0, 0.25, 0.25);
+    vert_color = vec3(length(in_velocity) / 15.0, 0.25, 0.25);
 	gl_Position = vec4(in_position, 1.0);
 }
 
@@ -27,7 +27,7 @@ out vec3 geo_color;
 void main() {
     //float size = gl_in[0].gl_PointSize;
     //color = size;
-    const float size = 1.0;
+    const float size = 2.0;
     vec3 pos = gl_in[0].gl_Position.xyz;
     vec3 right = vec3(m_mv[0][0], m_mv[1][0], m_mv[2][0]);
     vec3 up = vec3(m_mv[0][1], m_mv[1][1], m_mv[2][1]);

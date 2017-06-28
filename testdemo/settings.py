@@ -37,9 +37,9 @@ ROCKET = {
 
 # What effects to load
 EFFECTS = (
-    # 'testdemo.cube',
+    'testdemo.cube',
     # 'testdemo.rockettest',
-    'testdemo.feedback',
+    # 'testdemo.feedback',
 )
 
 SHADER_DIRS = (
