@@ -41,7 +41,7 @@ class CubeEffect(effect.Effect):
             self.cube.draw()
 
         # Test camera
-        self.sys_camera.set_projection(near=0.1, far=1000)
+        self.sys_camera.projection = self.create_projection(fov=90, near=0.1, far=1000)
         # self.sys_camera.set_position(10.0, 0.0, 10.0)
         # self.sys_camera.set_position(math.sin(time) * 10,
         #                                  math.sin(time * 10),

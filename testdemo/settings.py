@@ -37,10 +37,10 @@ ROCKET = {
 
 # What effects to load
 EFFECTS = (
-    'testdemo.deferred',
-    'demosys.deferred',
+    # 'testdemo.deferred',
+    # 'demosys.deferred',
     # 'testdemo.cube',
-    # 'testdemo.rockettest',
+    'testdemo.rockettest',
     # 'testdemo.feedback',
 )
 
