@@ -14,10 +14,7 @@ OPENGL = {
 }
 
 WINDOW = {
-    # "size": (640, 360),
-    # "size": (800, 600),
     "size": (1280, 768),
-    # "size": (1000, 600),
     "vsync": True,
     "resizable": True,
     "fullscreen": False,
@@ -37,11 +34,12 @@ ROCKET = {
 
 # What effects to load
 EFFECTS = (
-    # 'testdemo.deferred',
-    # 'demosys.deferred',
-    # 'testdemo.cube',
+    'testdemo.cube',
+    'testdemo.deferred',
+    'demosys.deferred',
+    'testdemo.feedback',
+    'testdemo.multilayer',
     'testdemo.rockettest',
-    # 'testdemo.feedback',
 )
 
 SHADER_DIRS = (
