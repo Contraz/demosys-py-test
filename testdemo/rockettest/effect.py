@@ -8,7 +8,7 @@ from pyrr import matrix44
 class DefaultEffect(effect.Effect):
     """Generated default efffect"""
     def __init__(self):
-        self.shader = self.get_shader("default.glsl")
+        self.shader = self.get_shader("default.glsl", local=False)
         self.cube = geometry.cube(4.0, 4.0, 4.0)
 
         # Tracks
