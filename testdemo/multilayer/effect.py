@@ -1,7 +1,7 @@
 from demosys.effects import effect
-from demosys.opengl import geometry
+from demosys import geometry
 from OpenGL import GL
-from pyrr import matrix44
+# from pyrr import matrix44
 from demosys.opengl import FBO
 
 
@@ -15,7 +15,7 @@ class DefaultEffect(effect.Effect):
         self.plane1 = geometry.quad_2d(width=1.0, height=1.0, xpos=-0.5)
         self.plane2 = geometry.quad_2d(width=1.0, height=1.0, xpos=0.5)
 
-        self.fbo = FBO.create(256, 256, depth=False, layers=2)
+        self.fbo = FBO.create((256, 256), depth=False, layers=2)
 
     @effect.bind_target
     def draw(self, time, frametime, target):
@@ -33,19 +33,18 @@ class DefaultEffect(effect.Effect):
 
         with self.fbo:
             # Draw the cube
-            with self.cube.bind(self.multi_shader) as s:
-                s.uniform_mat4("m_proj", self.sys_camera.projection)
-                s.uniform_mat4("m_mv", m_mv)
-            self.cube.draw()
+            self.multi_shader.uniform("m_proj", self.sys_camera.projection.tobytes())
+            self.multi_shader.uniform("m_mv", m_mv.astype('f4').tobytes())
+            self.cube.draw(self.multi_shader)
 
         # m_mv = matrix44.create_identity()
 
-        with self.plane1.bind(self.tex_shader) as s:
-            s.uniform_sampler_2d(0, "texture0", self.fbo.color_buffers[0])
-        self.plane1.draw()
+        self.fbo.color_buffers[0].use(location=0)
+        self.tex_shader.uniform("texture0", 0)
+        self.plane1.draw(self.tex_shader)
 
-        with self.plane2.bind(self.tex_shader) as s:
-            s.uniform_sampler_2d(0, "texture0", self.fbo.color_buffers[1])
-        self.plane2.draw()
+        self.fbo.color_buffers[1].use(location=0)
+        self.tex_shader.uniform("texture0", 0)
+        self.plane2.draw(self.tex_shader)
 
         self.fbo.clear()
