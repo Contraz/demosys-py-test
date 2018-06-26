@@ -34,12 +34,14 @@ ROCKET = {
 
 # What effects to load
 EFFECTS = (
-    'testdemo.cube',
-    'testdemo.deferred',
-    'demosys.deferred',
-    'testdemo.feedback',
-    'testdemo.multilayer',
-    'testdemo.rockettest',
+    'testdemo.bouncingcubes',
+    # 'testdemo.cube',
+    # 'testdemo.cube',
+    # 'testdemo.deferred',
+    # 'demosys.deferred',
+    # 'testdemo.feedback',
+    # 'testdemo.multilayer',
+    # 'testdemo.rockettest',
 )
 
 SHADER_DIRS = (

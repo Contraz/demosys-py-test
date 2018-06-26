@@ -68,4 +68,4 @@ class CubeEffect(effect.Effect):
         self.points.draw(shader)
 
         self.fbo.clear(red=0.5, green=0.5, blue=0.5, alpha=1.0, depth=1.0)
-        GL.glClearColor(0.0, 0.0, 0.0, 0.0)
+        # GL.glClearColor(0.0, 0.0, 0.0, 0.0)
