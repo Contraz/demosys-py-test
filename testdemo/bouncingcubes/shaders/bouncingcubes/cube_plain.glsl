@@ -29,7 +29,7 @@ void main()
 {
     vec3 dir = vec3(0.0, 0.0, 1.0);
     float l = dot(dir, normal);
-    fragColor = vec4(l, sin(time), l * 2.0, 1.0);
+    fragColor = vec4(l, sin(time / 20.0), l * 2.0, 1.0);
 }
 
 #endif

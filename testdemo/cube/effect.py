@@ -1,8 +1,8 @@
+import moderngl as mgl
 # import math
 from demosys.effects import effect
 from demosys import geometry
 from demosys.opengl import FBO
-from OpenGL import GL
 
 
 class CubeEffect(effect.Effect):
@@ -26,8 +26,8 @@ class CubeEffect(effect.Effect):
 
     @effect.bind_target
     def draw(self, time, frametime, target):
-        GL.glEnable(GL.GL_DEPTH_TEST)
-        GL.glEnable(GL.GL_CULL_FACE)
+        self.ctx.enable(mgl.DEPTH_TEST)
+        self.ctx.enable(mgl.CULL_FACE)
 
         mv_m = self.create_transformation(rotation=(time * 1.2, time * 2.1, time * 0.25),
                                           translation=(0.0, 0.0, -8.0))
@@ -47,7 +47,7 @@ class CubeEffect(effect.Effect):
             self.cube.draw(shader)
 
         # Test camera
-        self.sys_camera.projection.update(fov=90, near=0.1, far=1000)
+        self.sys_camera.projection.update(fov=75, near=0.1, far=1000)
         # self.sys_camera.set_position(10.0, 0.0, 10.0)
         # self.sys_camera.set_position(math.sin(time) * 10,
         #                                  math.sin(time * 10),
@@ -62,10 +62,10 @@ class CubeEffect(effect.Effect):
         shader.uniform("m_mv", view_m.astype('f4').tobytes())
         shader.uniform("m_normal", normal_m.astype('f4').tobytes())
         self.fbo.color_buffers[0].use(location=0)
+        # self.texture1.use()
         shader.uniform("texture0", 0)
         shader.uniform("time", time)
         shader.uniform("lightpos", (0.0, 0.0, 0.0))
         self.points.draw(shader)
 
         self.fbo.clear(red=0.5, green=0.5, blue=0.5, alpha=1.0, depth=1.0)
-        # GL.glClearColor(0.0, 0.0, 0.0, 0.0)

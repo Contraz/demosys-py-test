@@ -3,8 +3,6 @@ import math
 import numpy
 import random
 
-from OpenGL import GL
-
 from demosys import geometry
 from demosys.effects import effect
 from demosys.opengl import VAO
@@ -36,10 +34,9 @@ class DefaultEffect(effect.Effect):
 
     @effect.bind_target
     def draw(self, time, frametime, target):
-        GL.glDisable(GL.GL_DEPTH_TEST)
-
-        GL.glEnable(GL.GL_BLEND)
-        GL.glBlendFunc(GL.GL_SRC_ALPHA, GL.GL_ONE_MINUS_SRC_ALPHA)
+        self.ctx.disable(mgl.DEPTH_TEST)
+        self.ctx.enable(mgl.BLEND)
+        self.ctx.blend_func = mgl.SRC_ALPHA, mgl.ONE_MINUS_SRC_ALPHA
 
         m_proj = self.create_projection(90.0, 1.0, 1000.0)
 
@@ -75,8 +72,8 @@ class DefaultEffect(effect.Effect):
         self.particles = self.particles1 if self.particles == self.particles2 else self.particles2
 
     def init_particles(self):
-        count = 10000
-        area = 60.0
+        count = 50000
+        area = 100.0
         speed = 5.0
 
         def gen():

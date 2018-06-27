@@ -1,3 +1,5 @@
+import moderngl as mgl
+
 import math
 from demosys.effects import effect
 from demosys import geometry
@@ -19,7 +21,7 @@ class DefaultEffect(effect.Effect):
 
     @effect.bind_target
     def draw(self, time, frametime, target):
-        GL.glEnable(GL.GL_DEPTH_TEST)
+        self.ctx.enable(mgl.DEPTH_TEST)
 
         # Rotate and translate
         m_mv = self.create_transformation(rotation=(self.rot_x.time_value(time) * math.pi / 180,

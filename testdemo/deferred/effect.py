@@ -1,6 +1,7 @@
+import moderngl as mgl
+
 from demosys.effects import effect
 from demosys import geometry
-from OpenGL import GL
 from pyrr import matrix44
 from demosys.deferred import DeferredRenderer
 import math
@@ -36,9 +37,9 @@ class DeferredEffect(effect.Effect):
 
         m_cam = self.sys_camera.view_matrix
 
-        GL.glEnable(GL.GL_DEPTH_TEST)
-        GL.glEnable(GL.GL_CULL_FACE)
-        GL.glFrontFace(GL.GL_CCW)
+        self.ctx.enable(mgl.DEPTH_TEST)
+        self.ctx.enable(mgl.CULL_FACE)
+        self.ctx.front_face = 'ccw'
 
         # Matrices for cube
         m_mv = self.create_transformation(
@@ -66,7 +67,7 @@ class DeferredEffect(effect.Effect):
             self.geo_shader_color.uniform("color", (1.0, 1.0, 1.0, 1.0))
             self.floor.draw(self.geo_shader_color)
 
-        GL.glDisable(GL.GL_DEPTH_TEST)
+        self.ctx.disable(mgl.DEPTH_TEST)
 
         self.renderer.render_lights(m_cam, self.sys_camera.projection)
         self.renderer.combine()
