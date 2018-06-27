@@ -22,11 +22,13 @@ class SimpleCubeEffect(effect.Effect):
 
         self.cube = geometry.cube(10.0, 1.0, 10.0)
 
+        size, spacing = 32, 11.0
         self.cubes = []
-        for i in range(0, 10):
-            for j in range(0, 10):
+
+        for i in range(size):
+            for j in range(size):
                 self.cubes.append(
-                    BouncingCube((i, j), self.cube, (i * -10.0, 0, j * -10.0), (0, 0, 0)))
+                    BouncingCube((i, j), self.cube, (i * -spacing, 0, j * -spacing), (0, 0, 0)))
 
     @effect.bind_target
     def draw(self, time, frametime, target):
