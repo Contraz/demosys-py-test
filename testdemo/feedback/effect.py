@@ -50,7 +50,7 @@ class DefaultEffect(effect.Effect):
         # gravity = vector3.create(math.sin(time) * 10.0
         gravity_pos = vector3.create(math.sin(time) * 5,
                                      math.cos(time) * 5,
-                                     math.sin(time/3) * 5)
+                                     math.sin(time / 3) * 5)
         gravity_force = math.cos(time / 2) * 3.0 + 3.0
         # gravity_force = 2.0
 
@@ -77,7 +77,7 @@ class DefaultEffect(effect.Effect):
         speed = 5.0
 
         def gen():
-            for i in range(count):
+            for _ in range(count):
                 # Position
                 yield random.uniform(-area, area)
                 yield random.uniform(-area, area)
