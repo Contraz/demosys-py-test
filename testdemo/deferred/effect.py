@@ -6,7 +6,6 @@ from pyrr import matrix44
 from demosys.effects import effect
 from demosys import geometry
 from demosys.deferred import DeferredRenderer
-from demosys.view import screenshot
 
 
 class MyDeferred(DeferredRenderer):
@@ -32,7 +31,6 @@ class DeferredEffect(effect.Effect):
 
     @effect.bind_target
     def draw(self, time, frametime, target):
-        self.renderer.clear()
 
         self.renderer.point_lights[0].position = [math.sin(time) * 25,
                                                   0,
@@ -78,3 +76,5 @@ class DeferredEffect(effect.Effect):
         self.renderer.render_lights_debug(m_cam, self.sys_camera.projection)
         self.renderer.draw_buffers(self.sys_camera.projection.near,
                                    self.sys_camera.projection.far)
+
+        self.renderer.clear()

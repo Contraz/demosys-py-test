@@ -8,13 +8,11 @@ SCREENSHOT_PATH = os.path.join(PROJECT_DIR, 'screenshots')
 
 # Profile: any, core, compat
 OPENGL = {
-    "version": (4, 1),
-    "profile": "core",
-    "forward_compat": True,
+    "version": (3, 3),
 }
 
 WINDOW = {
-    "size": (1280, 768),
+    "size": (1280, 720),
     "vsync": True,
     "resizable": True,
     "fullscreen": False,
@@ -22,7 +20,7 @@ WINDOW = {
     "cursor": True,
 }
 
-MUSIC = os.path.join(PROJECT_DIR, 'resources/music/tg2035.mp3')
+# MUSIC = os.path.join(PROJECT_DIR, 'resources/music/tg2035.mp3')
 TIMER = 'demosys.timers.Timer'
 # TIMER = 'demosys.timers.RocketTimer'
 # TIMER = 'demosys.timers.RocketMusicTimer'
@@ -30,6 +28,7 @@ TIMER = 'demosys.timers.Timer'
 
 ROCKET = {
     'mode': 'project',
+    # 'mode': 'editor',
     'rps': 60,
     'project': os.path.join(PROJECT_DIR, 'resources', 'cube.xml'),
     'files': os.path.join(PROJECT_DIR, 'resources', 'tracks'),
@@ -37,14 +36,15 @@ ROCKET = {
 
 # What effects to load
 EFFECTS = (
+    # 'testdemo.plain',
     # 'testdemo.bouncingcubes',
-    'testdemo.bouncingcubes_instanced',
+    # 'testdemo.bouncingcubes_instanced',
     # 'testdemo.cube',
     # 'testdemo.deferred',
     # 'demosys.deferred',
-    # 'testdemo.feedback',
+    'testdemo.feedback',
     # 'testdemo.multilayer',
-    'testdemo.rockettest',
+    # 'testdemo.rockettest',
 )
 
 SHADER_DIRS = (
